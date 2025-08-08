@@ -1,0 +1,19 @@
+[project]
+name = "march-madness-model"
+version = "0.1.0"
+description = "Free-only NCAA March Madness prediction and backtesting suite"
+authors = [ { name = "OpenAI", email = "" } ]
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

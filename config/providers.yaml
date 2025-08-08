@@ -1,0 +1,6 @@
+sources:
+  torvik: { enabled: true, base_url: "https://barttorvik.com/", politeness_delay_sec: 2 }
+  sportsref: { enabled: true, base_url: "https://www.sports-reference.com/cbb/", politeness_delay_sec: 2 }
+  ncaa: { enabled: true, base_url: "https://www.ncaa.com/", politeness_delay_sec: 2 }
+  wikipedia: { enabled: true, base_url: "https://en.wikipedia.org/", politeness_delay_sec: 1 }
+  kenpom: { enabled: false }  # ToS/subscription; do not enable by default

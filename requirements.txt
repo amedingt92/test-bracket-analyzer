@@ -1,0 +1,25 @@
+# Core data & numeric libraries
+pandas>=2.0
+polars>=0.19
+numpy>=1.23
+scikit-learn>=1.3
+statsmodels>=0.14
+numba>=0.58
+
+# Data ingestion
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=4.9
+
+# Visualization & dashboard
+plotly>=5.17
+streamlit>=1.25
+
+# Utilities
+pyyaml>=6.0
+networkx>=3.1
+jinja2>=3.1
+rapidfuzz>=3.5
+
+# Testing
+pytest>=7.2

@@ -1,0 +1,28 @@
+random_seed: 1337
+db_path: "data/processed/mm.db"
+snapshots_dir: "data/snapshots"
+raw_dir: "data/raw"
+processed_dir: "data/processed"
+external_dir: "data/external"
+
+model_defaults:
+  elo:
+    k_base: 30
+    home_adv: 40   # elo points
+    preseason_regress: 0.6
+  logit:
+    regularization: l2
+    C: 1.0
+    features: ["adj_o", "adj_d", "tempo", "sos", "luck", "exp", "style_contrast", "travel_km", "rest_days"]
+  bayes:
+    prior_strength: 20
+  ensemble:
+    members: ["elo", "logit", "bayes"]
+    method: "weighted"
+    weights: [0.35, 0.45, 0.20]  # tuned via backtests
+
+calibration:
+  method: "isotonic"
+
+asof_selection_sunday:
+  # fill or override via CLI per season
