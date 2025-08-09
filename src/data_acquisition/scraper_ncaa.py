@@ -19,7 +19,7 @@ def scrape_ncaa(seasons: List[int], raw_dir: Path, providers_cfg: Dict) -> None:
         metadata = {
             "source": "ncaa",
             "season": season,
-            "timestamp": datetime.datetime.utcnow().isoformat(),
+            "timestamp": datetime.datetime.now(datetime.UTC).isoformat(),
             "base_url": base_url,
         }
         with open(season_dir / "metadata.json", "w", encoding="utf-8") as f:

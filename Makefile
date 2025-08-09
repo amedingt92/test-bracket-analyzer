@@ -7,7 +7,8 @@ lint:
 	ruff r src
 
 test:
-	pytest -q
+	# Compute absolute path to the src directory
+	PYTHONPATH=$(shell pwd)/src pytest -q
 
 ingest:
 	python -m src.cli.main ingest --seasons 2010-2024 --providers torvik,sportsref,ncaa,wikipedia

@@ -2,7 +2,7 @@
 name = "march-madness-model"
 version = "0.1.0"
 description = "Free-only NCAA March Madness prediction and backtesting suite"
-authors = [ { name = "OpenAI", email = "" } ]
+authors = [ { name = "amedingt92", email = "aedington3c@comcast.net" } ]
 readme = "README.md"
 requires-python = ">=3.11"
 license = { file = "LICENSE" }
