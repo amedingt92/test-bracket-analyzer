@@ -1,27 +1,39 @@
-"""Scraper for Wikipedia data (placeholder)."""
+"""
+Mock scraper for Wikipedia data.
+
+This placeholder writes synthetic game and team data.  In a real scraper
+you would query Wikipedia pages for tournament results and parse the tables.
+"""
 
 from __future__ import annotations
+
+import csv
+import random
 from pathlib import Path
-from typing import List, Dict
-import json
-import time
-import datetime
-
-from ..utils import io as uio
+from typing import List, Dict, Any
 
 
-def scrape_wikipedia(seasons: List[int], raw_dir: Path, providers_cfg: Dict) -> None:
-    base_url = providers_cfg.get("base_url", "")
-    delay = providers_cfg.get("politeness_delay_sec", 0)
+def scrape_wikipedia(seasons: List[int], raw_dir: Path, config: Dict[str, Any]) -> None:
+    """Generate dummy data for Wikipedia."""
+    raw_dir.mkdir(parents=True, exist_ok=True)
     for season in seasons:
-        season_dir = raw_dir / str(season) / "wikipedia"
-        uio.ensure_dir(season_dir)
-        metadata = {
-            "source": "wikipedia",
-            "season": season,
-            "timestamp": datetime.datetime.now(datetime.UTC).isoformat(),
-            "base_url": base_url,
-        }
-        with open(season_dir / "metadata.json", "w", encoding="utf-8") as f:
-            json.dump(metadata, f, indent=2)
-        time.sleep(delay)
+        games_path = raw_dir / f"{season}_games.csv"
+        teams_path = raw_dir / f"{season}_teams.csv"
+        teams = [f"WP{idx}" for idx in range(1, 5)]
+        with teams_path.open("w", newline="", encoding="utf-8") as tf:
+            writer = csv.writer(tf)
+            writer.writerow(["team_id", "name"])
+            for t in teams:
+                writer.writerow([t, f"Wiki {t}"])
+        with games_path.open("w", newline="", encoding="utf-8") as gf:
+            writer = csv.writer(gf)
+            writer.writerow(["date", "home_team_id", "away_team_id", "home_score", "away_score", "neutral"])
+            for home in teams:
+                for away in teams:
+                    if home == away:
+                        continue
+                    date = f"{season}-04-{random.randint(1, 28):02d}"
+                    home_score = random.randint(60, 90)
+                    away_score = random.randint(60, 90)
+                    neutral = 0
+                    writer.writerow([date, home, away, home_score, away_score, neutral])
