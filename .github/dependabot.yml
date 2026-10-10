@@ -1,0 +1,16 @@
+# Weekly dependency updates. The lock is compiled from requirements.in, and Dependabot edits the .in file and the
+# lock together. Review each pull request: most of these projects have no CI, so nothing tests the new versions for you.
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Chicago"
+    groups:
+      python-packages:
+        patterns: ["*"]
+    commit-message:
+      prefix: "deps"
