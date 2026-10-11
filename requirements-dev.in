@@ -1,0 +1,10 @@
+# Development tools, as ranges. Edit this file, then regenerate the lock:
+#   pip-compile --strip-extras --no-header --no-annotate requirements-dev.in
+# requirements-dev.txt is generated from this file; do not edit it by hand.
+# Constraining to the runtime lock keeps the two locks from disagreeing about a shared package.
+-c requirements.txt
+-r requirements.in
+
+
+# Scans the lock for known vulnerabilities (CI runs it)
+pip-audit
